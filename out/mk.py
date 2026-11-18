@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 W,H=1080,1920; X,Y,w,h=108,190,864,1536; R=48
-B="/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-import glob; heb=(glob.glob("/usr/share/fonts/**/FreeSansBold.ttf",recursive=True) or [B])[0]
+B="Heebo-Black.ttf"
+import glob; heb=B
 bg=Image.new("RGBA",(W,H),(18,6,34,255))
 g=Image.new("RGBA",(W,H),(0,0,0,0)); d=ImageDraw.Draw(g)
 d.rounded_rectangle((X-6,Y-6,X+w+6,Y+h+6),R+6,outline=(170,80,255,255),width=14)
@@ -31,6 +31,5 @@ f=ImageFont.truetype(B,96); tw=ImageDraw.Draw(fr).textlength("SPARK",font=f); x0
 fr.alpha_composite(s,(x0,100-s.height//2))
 glowtext(fr,(int(x0+160+tw/2),100),"SPARK",f,(235,210,255,255)); fr.save("frame.png")
 wm=Image.new("RGBA",(W,H),(0,0,0,0)); s=logo.resize((620,int(620*logo.height/logo.width)))
-s.putalpha(s.getchannel("A").point(lambda v:v*0.4)); wm.alpha_composite(s,((W-s.width)//2,(H-s.height)//2-60))
-t=Image.new("RGBA",(W,300),(0,0,0,0)); ImageDraw.Draw(t).text((W//2,150),"SPARK",font=ImageFont.truetype(B,190),fill=(255,255,255,100),anchor="mm",stroke_width=4,stroke_fill=(150,60,255,100))
-wm.alpha_composite(t,(0,(H+s.height)//2-110)); wm.save("wm.png")
+s.putalpha(s.getchannel("A").point(lambda v:v*0.22)); wm.alpha_composite(s,((W-s.width)//2,(H-s.height)//2))
+wm.save("wm.png")
