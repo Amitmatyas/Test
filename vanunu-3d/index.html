@@ -42,8 +42,8 @@ body{background:var(--ink);color:var(--paper);font-family:var(--f-body);-webkit-
 #glitch.on i{animation:gbar .34s steps(4) both}
 @keyframes gbar{0%{opacity:1;transform:translateX(-8%)}33%{transform:translateX(6%)}66%{transform:translateX(-3%)}100%{opacity:0;transform:translateX(0)}}
 
-#stage{position:fixed;inset:0;z-index:5;display:grid;place-items:center;overflow:hidden}
-#frame{width:1600px;height:900px;flex:none;position:relative;transform:scale(var(--s,1));transform-origin:center;perspective:1700px;perspective-origin:50% 45%}
+#stage{position:fixed;inset:0;z-index:5;overflow:hidden}
+#frame{width:1600px;height:900px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--s,1));transform-origin:center;perspective:1700px;perspective-origin:50% 45%}
 #frame.shake{animation:shake .38s linear}
 @keyframes shake{0%,100%{translate:0 0;filter:none}20%{translate:-14px 6px;filter:hue-rotate(80deg) saturate(2)}40%{translate:12px -8px}60%{translate:-6px 4px;filter:hue-rotate(-60deg)}80%{translate:4px -2px}}
 
@@ -277,7 +277,6 @@ h2.glitch{display:block;width:fit-content}
 <main id="stage">
 <div id="frame">
   <div class="corner a"></div><div class="corner b"></div><div class="corner c"></div><div class="corner d"></div>
-  <div class="hud tr"><span class="rec"></span><span>Classified · Eyes only</span></div>
 
   <!-- 1 -->
   <section class="slide s1" data-shape="0" aria-label="Mordechai Vanunu">
@@ -579,7 +578,7 @@ const next = () => go(cur + 1), prev = () => go(cur - 1);
 $('#next').addEventListener('click', e => { e.stopPropagation(); next(); });
 $('#prev').addEventListener('click', e => { e.stopPropagation(); prev(); });
 $('#full').addEventListener('click', e => { e.stopPropagation(); toggleFull(); });
-document.addEventListener('fullscreenchange', () => { const on = !!document.fullscreenElement; $('#ui').classList.toggle('fs', on); $('#full').setAttribute('aria-label', on ? 'Exit fullscreen' : 'Fullscreen'); });
+document.addEventListener('fullscreenchange', () => { const on = !!document.fullscreenElement; $('#ui').classList.toggle('fs', on); $('#full').setAttribute('aria-label', on ? 'Exit fullscreen' : 'Fullscreen'); fit(); setTimeout(fit, 200); });
 addEventListener('keydown', e => {
   if (e.metaKey || e.ctrlKey || e.altKey) return;
   const k = e.key;
