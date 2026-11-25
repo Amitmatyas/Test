@@ -1,0 +1,223 @@
+section {
+  --ink: #161514;
+  --paper: #F3F0E8;
+  --paper2: #E9E4D8;
+  --muted: #5C5852;
+  --soft: #ABA79F;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Heebo', Arial, sans-serif;
+  text-align: right;
+  box-sizing: border-box;
+  padding: 128px 128px 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  counter-increment: page;
+}
+section.alt { background: var(--paper2); }
+section.dark { background: var(--ink); color: var(--paper); }
+section.center { justify-content: center; }
+section.chapter { justify-content: center; align-items: center; text-align: center; padding: 128px; gap: 24px; }
+
+h1, h2, h3 { font-family: 'Frank Ruhl Libre', Georgia, serif; margin: 0; }
+h1 { font-size: 180px; font-weight: 800; line-height: 0.95; }
+h2 { font-size: 104px; font-weight: 700; line-height: 1.05; }
+h3 { font-size: 52px; font-weight: 600; line-height: 1.15; }
+p { margin: 0; font-size: 36px; line-height: 1.4; }
+
+.eyebrow { font-size: 24px; font-weight: 500; letter-spacing: 2px; color: var(--muted); margin-bottom: -16px; }
+.dark .eyebrow { color: var(--soft); }
+.mute { color: var(--muted); }
+.dark .mute { color: var(--soft); }
+.serif { font-family: 'Frank Ruhl Libre', Georgia, serif; }
+.big { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 52px; line-height: 1.25; }
+.label { font-size: 24px; font-weight: 500; letter-spacing: 2px; color: var(--muted); }
+
+.rule { align-self: flex-end; width: 160px; height: 0; margin: 0;border: none; border-top: 3px solid var(--ink); transform-origin: right center; }
+.dark .rule { border-top: 3px solid var(--paper); }
+.chapter .rule { align-self: center; transform-origin: center center; }
+
+/* running footer, like a book page */
+.folio { position: absolute; left: 128px; bottom: 64px; width: 1664px; display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; }
+.run { font-size: 24px; color: var(--muted); letter-spacing: 1px; }
+.dark .run { color: var(--soft); }
+.pn { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 24px; color: var(--muted); }
+.dark .pn { color: var(--soft); }
+.pn::before { content: "— " counter(page) " —"; }
+
+/* book furniture: page frame, bookmark ribbon, epigraphs */
+.frame { position: absolute; left: 40px; top: 40px; width: 1840px; height: 1000px; box-sizing: border-box; border: 1px solid var(--soft); }
+.dark .frame { border: 1px solid #4A4743; }
+.frame-outer { position: absolute; left: 32px; top: 32px; width: 1856px; height: 1016px; box-sizing: border-box; border: 3px solid var(--ink); }
+.frame-inner { position: absolute; left: 46px; top: 46px; width: 1828px; height: 988px; box-sizing: border-box; border: 1px solid var(--ink); }
+.ribbon { position: absolute; left: 160px; top: 0px; width: 44px; height: 150px; animation: drop 1000ms cubic-bezier(0.2, 0.7, 0.2, 1) 200ms both; }
+@keyframes drop { from { transform: translateY(-150px); } to { transform: translateY(0px); } }
+.epi { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 36px; line-height: 1.4; color: var(--soft); margin-top: 24px; }
+.epi-src { font-size: 24px; letter-spacing: 1px; color: var(--soft); }
+
+/* motion */
+@keyframes rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0px); } }
+@keyframes ink { from { opacity: 0; filter: blur(18px); } to { opacity: 1; filter: blur(0px); } }
+@keyframes draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+@keyframes wiggle {
+  0% { transform: translateX(0px); }
+  20% { transform: translateX(-18px); }
+  40% { transform: translateX(0px); }
+  60% { transform: translateX(-12px); }
+  80% { transform: translateX(0px); }
+  100% { transform: translateX(0px); }
+}
+.in { animation: rise 800ms cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(var(--i, 0) * 110ms); }
+.ink { animation: ink 1100ms ease-out both; animation-delay: calc(var(--i, 0) * 110ms); }
+.fade { animation: fadein 1200ms ease-out both; animation-delay: calc(var(--i, 0) * 110ms); }
+.draw { animation: draw 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(var(--i, 0) * 110ms); }
+
+.fragment { opacity: 0; transform: translateY(28px); transition: opacity 650ms ease, transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+.fragment.visible { opacity: 1; transform: translateY(0px); }
+
+/* cover */
+.cover { justify-content: center; padding: 128px 128px 200px; }
+.cover-grid { display: flex; flex-direction: row-reverse;justify-content: space-between; align-items: flex-end; gap: 96px; }
+.cover-title { display: flex; flex-direction: column; gap: 32px; }
+.byline { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 52px; line-height: 1.2; }
+.idcard { width: 620px; box-sizing: border-box; border: 3px solid var(--ink); padding: 40px 48px 24px; display: flex; flex-direction: column; }
+.idhead { display: flex; flex-direction: row-reverse;justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 3px solid var(--ink); }
+.idtitle { font-size: 36px; font-weight: 700; }
+.idicon { width: 40px; height: 40px; color: var(--ink); }
+.idrow { display: flex; flex-direction: row-reverse;justify-content: space-between; align-items: baseline; padding: 18px 0px; border-bottom: 1px solid var(--ink); }
+.idrow-last { border-bottom: none; }
+.idrow-stack { flex-direction: column; align-items: stretch; gap: 6px; }
+.idlabel { font-size: 24px; color: var(--muted); }
+.idval { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 36px; font-weight: 600; }
+.trail { position: absolute; left: 0px; top: 950px; width: 1920px; height: 100px; }
+
+/* chapter opener */
+.bigletter { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 340px; font-weight: 300; line-height: 1; }
+.chap-ants { position: absolute; left: 0px; top: 920px; width: 1920px; height: 80px; }
+
+/* ant illustrations */
+.side-art { position: absolute; left: 200px; top: 330px; width: 360px; height: 360px; }
+.ring { position: relative; width: 460px; height: 460px; display: flex; align-items: center; justify-content: center; }
+.ring-svg { position: absolute; left: 0px; top: 0px; width: 460px; height: 460px; }
+.bigletter-sm { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 260px; font-weight: 300; line-height: 1; }
+.stamp { position: absolute; left: 240px; top: 250px; width: 440px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.stamp.fragment { opacity: 0; transform: rotate(-12deg) scale(1.8); transition: opacity 300ms ease, transform 450ms cubic-bezier(0.3, 0, 0.3, 1); }
+.stamp.fragment.visible { opacity: 1; transform: rotate(-12deg) scale(1); }
+.stamp-text { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 44px; font-weight: 700; line-height: 1.15; text-align: center; color: var(--paper); }
+.peace-row { display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; margin-top: 24px; }
+.greet { width: 420px; height: 120px; }
+.climb { position: absolute; left: 160px; top: 560px; width: 600px; height: 300px; }
+.asterism { align-self: flex-end; width: 260px; height: 50px; }
+.readbook { width: 300px; height: 150px; margin-top: 24px; }
+
+/* dictionary cards */
+.dict { display: flex; flex-direction: column; gap: 64px; margin-top: 24px; }
+.dict-row { display: flex; flex-direction: row-reverse; gap: 32px; }
+.entry { flex: 1; border-top: 3px solid var(--ink); padding-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+.entry-head { display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; }
+.entry-word { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 56px; font-weight: 700; line-height: 1.15; }
+.entry-tab { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 24px; font-weight: 700; color: var(--paper); background: var(--ink); padding: 2px 14px; border-radius: 4px; }
+.entry-def { font-size: 36px; line-height: 1.3; }
+.entry-use { font-size: 24px; line-height: 1.4; color: var(--muted); }
+
+/* glossary */
+.gloss { display: flex; flex-direction: column; }
+.gl-row { display: flex; flex-direction: row-reverse; align-items: baseline; gap: 48px; padding: 18px 0px; border-bottom: 1px solid var(--ink); }
+.gl-first { border-top: 3px solid var(--ink); }
+.gl-word { width: 520px; font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 52px; font-weight: 700; line-height: 1.15; }
+.gl-def { flex: 1; font-size: 36px; color: var(--muted); }
+
+/* home */
+.pair { display: flex; flex-direction: row-reverse;gap: 64px; }
+.paircard { flex: 1; border-top: 3px solid var(--ink); padding-top: 28px; display: flex; flex-direction: column; gap: 16px; }
+.route { position: relative; width: 1664px; height: 170px; margin-top: 24px; }
+.stop { position: absolute; top: 96px; width: 320px; text-align: center; font-size: 24px; color: var(--muted); }
+
+/* war */
+.steps { display: flex; flex-direction: column; gap: 56px; }
+.steprow { display: flex; flex-direction: row-reverse; gap: 48px; }
+.step { flex: 1; border-top: 3px solid var(--ink); padding-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.num { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 24px; color: var(--muted); }
+.result { font-size: 36px; color: var(--muted); }
+
+/* office */
+.dialog { display: flex; flex-direction: column; gap: 28px; }
+.whisper { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 52px; color: var(--soft); }
+.signed { font-size: 24px; color: var(--soft); letter-spacing: 2px; }
+
+/* peace */
+.row3 { display: flex; flex-direction: row-reverse;gap: 48px; }
+.card { flex: 1; border-top: 3px solid var(--ink); padding-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.quote { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 52px; line-height: 1.25; }
+
+/* statement with ants */
+.antline { width: 1664px; height: 60px; }
+
+/* default */
+.split { display: flex; flex-direction: row-reverse;gap: 96px; align-items: center; }
+.split-text { flex: 1; display: flex; flex-direction: column; gap: 32px; }
+.panel { width: 760px; box-sizing: border-box; border: 3px solid var(--ink); padding: 32px 40px 8px; display: flex; flex-direction: column; background: var(--paper); }
+.panel-head { display: flex; flex-direction: row-reverse;justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 3px solid var(--ink); }
+.setrow { display: flex; flex-direction: row-reverse;justify-content: space-between; align-items: center; padding: 24px 0px; border-bottom: 1px solid var(--ink); }
+.setrow-last { border-bottom: none; }
+.setctl { display: flex; flex-direction: row-reverse;align-items: center; gap: 20px; }
+.lock { width: 32px; height: 32px; color: var(--muted); }
+.toggle { position: relative; width: 112px; height: 56px; border-radius: 28px; background: var(--ink); }
+.knob { position: absolute; left: 6px; top: 6px; width: 44px; height: 44px; border-radius: 22px; background: var(--paper); }
+.knob-try { animation: wiggle 1300ms ease-in-out 1400ms both; }
+
+/* stages */
+.stages { display: flex; flex-direction: row-reverse;align-items: flex-start; gap: 40px; }
+.stage { width: 430px; display: flex; flex-direction: column; gap: 12px; }
+.stagewrap { display: flex; flex-direction: row-reverse;align-items: flex-start; gap: 40px; }
+.arrow { width: 72px; height: 36px; margin-top: 52px; background: var(--ink); }
+.stnum { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 104px; font-weight: 300; line-height: 1; color: var(--muted); }
+.punch { border-top: 3px solid var(--ink); padding-top: 24px; }
+
+/* us */
+.row4 { display: flex; flex-direction: row-reverse;gap: 40px; }
+.tile { flex: 1; border: 3px solid var(--ink); padding: 32px; display: flex; flex-direction: column; gap: 16px; }
+
+/* ending */
+.beats { display: flex; flex-direction: column; gap: 24px; }
+.leave { width: 1664px; height: 60px; }
+.leave.fragment { opacity: 1; transform: translateX(0px); transition: transform 3200ms cubic-bezier(0.55, 0, 0.85, 0.35), opacity 700ms ease 2500ms; }
+.leave.fragment.visible { opacity: 0; transform: translateX(-1900px); }
+
+/* our ending: big text + fleeing ants */
+.ending-h { font-size: 120px; font-weight: 800; line-height: 1.05; }
+.beat-mid { font-size: 52px; line-height: 1.3; color: var(--muted); }
+.beat-big { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 72px; font-weight: 700; line-height: 1.2; }
+.fleefield { position: relative; width: 1664px; height: 160px; }
+.flee { position: absolute; width: 60px; height: 60px; }
+.flee.fragment { opacity: 1; transform: translate(0px, 0px); transition: transform 1100ms cubic-bezier(0.5, 0, 0.9, 0.4), opacity 300ms ease; transition-delay: 0ms, 900ms; }
+.flee.fragment.visible { opacity: 0; }
+.f1.flee.fragment.visible { transform: translate(-700px, -120px); }
+.f2.flee.fragment { transition-delay: 120ms, 1020ms; }
+.f2.flee.fragment.visible { transform: translate(-800px, 500px); }
+.f3.flee.fragment { transition-delay: 60ms, 960ms; }
+.f3.flee.fragment.visible { transform: translate(-300px, -800px); }
+.f4.flee.fragment { transition-delay: 200ms, 1100ms; }
+.f4.flee.fragment.visible { transform: translate(-200px, 700px); }
+.f5.flee.fragment { transition-delay: 30ms, 930ms; }
+.f5.flee.fragment.visible { transform: translate(100px, -900px); }
+.f6.flee.fragment { transition-delay: 160ms, 1060ms; }
+.f6.flee.fragment.visible { transform: translate(300px, 700px); }
+.f7.flee.fragment { transition-delay: 90ms, 990ms; }
+.f7.flee.fragment.visible { transform: translate(700px, -700px); }
+.f8.flee.fragment { transition-delay: 240ms, 1140ms; }
+.f8.flee.fragment.visible { transform: translate(900px, 200px); }
+.f9.flee.fragment { transition-delay: 140ms, 1040ms; }
+.f9.flee.fragment.visible { transform: translate(700px, -300px); }
+.f10.flee.fragment { transition-delay: 280ms, 1180ms; }
+.f10.flee.fragment.visible { transform: translate(800px, 600px); }
+
+/* two endings */
+.versus { display: flex; flex-direction: row-reverse;align-items: stretch; gap: 72px; }
+.side { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+.divider { width: 3px; background: var(--ink); }
+
+/* end */
+.endmark { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 240px; font-weight: 800; line-height: 1; }

@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>קיץ של נמלים · אפרים קישון</title>
+<meta name="description" content="מצגת על הסיפור קיץ של נמלים מאת אפרים קישון">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300..700&display=swap">
+<link rel="stylesheet" href="deck.css">
+<style>
+  html, body { margin: 0; height: 100%; background: #0d0d0c; overflow: hidden; }
+  body { -webkit-font-smoothing: antialiased; }
+  #stage { position: fixed; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: center center; counter-reset: page; cursor: pointer; }
+  #stage > section { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility 0s linear .5s; }
+  #stage > section.active { opacity: 1; visibility: visible; transition: opacity .5s ease; }
+  aside { display: none; }
+  .arrow-svg { flex-shrink: 0; margin-top: 52px; }
+
+  #notes { position: fixed; left: 0; right: 0; bottom: 0; max-height: 34vh; overflow: auto; padding: 16px 24px 20px; background: rgba(13,13,12,.94); color: #F3F0E8; font: 18px/1.6 'Heebo', Arial, sans-serif; direction: rtl; text-align: right; display: none; z-index: 10; border-top: 1px solid #4A4743; }
+  #notes.on { display: block; }
+  #notes b { color: #ABA79F; font-weight: 500; margin-left: 8px; }
+  #hint { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); padding: 8px 16px; border-radius: 6px; background: rgba(13,13,12,.85); color: #F3F0E8; font: 15px/1.4 'Heebo', Arial, sans-serif; direction: rtl; white-space: nowrap; transition: opacity .6s ease; z-index: 11; pointer-events: none; }
+  #hint.off { opacity: 0; }
+  @media (max-width: 700px) { #hint { white-space: normal; width: calc(100% - 32px); text-align: center; } }
+</style>
+</head>
+<body>
+<main id="stage" aria-live="polite">
+<section id="cover" class="cover" data-transition="fade">
+<div class="frame-outer fade" style="--i:0"></div>
+<div class="frame-inner fade" style="--i:1"></div>
+<div class="cover-grid">
+<div class="cover-title">
+<p class="eyebrow in" style="--i:0">סיפור קצר · הומור ישראלי</p>
+<h1 class="ink" style="--i:1">קיץ<br>של נמלים</h1>
+<hr class="rule draw" style="--i:4">
+<p class="byline in" style="--i:5">אפרים קישון</p>
+</div>
+<div class="idcard in" style="--i:6">
+<div class="idhead"><h3 class="idtitle">תעודת זהות</h3><svg class="idicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+<div class="idrow"><p class="idlabel">שם הסיפור</p><p class="idval">קיץ של נמלים</p></div>
+<div class="idrow"><p class="idlabel">שם הסופר</p><p class="idval">אפרים קישון</p></div>
+<div class="idrow"><p class="idlabel">שם הספר</p><p class="idval" style="text-align:start">סיפור משפחתי</p></div>
+<div class="idrow idrow-last idrow-stack"><p class="idlabel">מגישים</p><p class="idval" style="text-align:start;width:389px;transform:translate(-8px, -39px);box-sizing:border-box">איתן קוייליס · אורן ויזל<br>בר סגל · עמית מטיאס</p></div>
+</div>
+</div>
+<svg class="trail fade" style="--i:7" width="1920" height="100" viewBox="0 40 1920 100" aria-label="שיירת נמלים חוצה את תחתית הדף">
+<defs><g id="antCv" transform="scale(1.5)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></defs>
+<path d="M1920 90 C1600 72 1400 108 1100 90 S600 72 300 90 S60 104 0 90" stroke="#ABA79F" stroke-width="2" stroke-dasharray="2 12" stroke-linecap="round" fill="none"/>
+<use href="#antCv"><animateMotion dur="32s" begin="0s" repeatCount="indefinite" path="M2000 90 C1600 72 1400 108 1100 90 S600 72 300 90 S60 104 -100 90"/></use>
+<use href="#antCv"><animateMotion dur="32s" begin="-3.2s" repeatCount="indefinite" path="M2000 90 C1600 72 1400 108 1100 90 S600 72 300 90 S60 104 -100 90"/></use>
+<use href="#antCv"><animateMotion dur="32s" begin="-6.4s" repeatCount="indefinite" path="M2000 90 C1600 72 1400 108 1100 90 S600 72 300 90 S60 104 -100 90"/></use>
+<use href="#antCv"><animateMotion dur="32s" begin="-9.6s" repeatCount="indefinite" path="M2000 90 C1600 72 1400 108 1100 90 S600 72 300 90 S60 104 -100 90"/></use>
+<use href="#antCv"><animateMotion dur="32s" begin="-12.8s" repeatCount="indefinite" path="M2000 90 C1600 72 1400 108 1100 90 S600 72 300 90 S60 104 -100 90"/></use>
+<use href="#antCv"><animateMotion dur="32s" begin="-16s" repeatCount="indefinite" path="M2000 90 C1600 72 1400 108 1100 90 S600 72 300 90 S60 104 -100 90"/></use>
+<use href="#antCv"><animateMotion dur="32s" begin="-19.2s" repeatCount="indefinite" path="M2000 90 C1600 72 1400 108 1100 90 S600 72 300 90 S60 104 -100 90"/></use>
+<use href="#antCv"><animateMotion dur="32s" begin="-22.4s" repeatCount="indefinite" path="M2000 90 C1600 72 1400 108 1100 90 S600 72 300 90 S60 104 -100 90"/></use>
+<use href="#antCv"><animateMotion dur="32s" begin="-25.6s" repeatCount="indefinite" path="M2000 90 C1600 72 1400 108 1100 90 S600 72 300 90 S60 104 -100 90"/></use>
+<use href="#antCv"><animateMotion dur="32s" begin="-28.8s" repeatCount="indefinite" path="M2000 90 C1600 72 1400 108 1100 90 S600 72 300 90 S60 104 -100 90"/></use>
+</svg>
+<aside>(כ־30 שניות) שלום לכולם. אנחנו מציגים את הסיפור "קיץ של נמלים" של אפרים קישון, מתוך הספר "סיפור משפחתי". המגישים: איתן קוייליס, אורן ויזל, בר סגל ועמית מטיאס. קישון הוא אחד הסופרים ההומוריסטיים הגדולים בישראל – הוא כותב על בעיות קטנות של חיי היום־יום בצורה מצחיקה, אבל תמיד יש מאחורי זה משהו רציני. במצגת נספר מה קרה בסיפור, מה המסר שלו, ונציג סוף אחר שכתבנו בעצמנו.</aside>
+</section>
+<section id="ch1" class="dark chapter" data-transition="fade">
+<div class="frame"></div>
+<svg class="side-art fade" style="--i:5" width="360" height="360" viewBox="0 0 360 360" aria-label="נמלה מתחת לזכוכית מגדלת">
+<defs><g id="antM"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#F3F0E8" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#F3F0E8"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#F3F0E8"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#F3F0E8"/></g></defs>
+<use href="#antM" transform="translate(150 150) scale(4.5)"/>
+<g>
+<circle cx="150" cy="150" r="115" stroke="#F3F0E8" stroke-width="8" fill="none"/>
+<path d="M90 100 A80 80 0 0 1 140 70" stroke="#ABA79F" stroke-width="5" stroke-linecap="round" fill="none"/>
+<path d="M232 232 L325 325" stroke="#F3F0E8" stroke-width="22" stroke-linecap="round"/>
+<animateTransform attributeName="transform" type="translate" values="0 0; -18 12; 14 -10; 0 0" dur="3.5s" begin="0.6s"/>
+</g>
+</svg>
+<p class="eyebrow in" style="--i:0">פרק א׳</p>
+<p class="bigletter ink" style="--i:1">א</p>
+<hr class="rule draw" style="--i:3">
+<h2 class="in" style="--i:4">מה קרה בסיפור</h2>
+<p class="epi in" style="--i:6">ובו יסופר על מטבח אחד ושיירה אחת ארוכה</p>
+<aside>(כ־10 שניות) נתחיל מהסיפור עצמו – מה קרה בו.</aside>
+</section>
+<section id="words" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#161514"/></svg>
+<p class="eyebrow in" style="--i:0">פרק א׳ · מילון קטן</p>
+<h2 class="in" style="--i:1">מילים קשות</h2>
+<div class="dict">
+<div class="dict-row">
+<div class="entry in" style="--i:2"><div class="entry-head"><p class="entry-word">מִפְתָּן</p><p class="entry-tab">מ</p></div><p class="entry-def">סף הדלת, הכניסה לבית</p><p class="entry-use">משם נכנסת שיירת הנמלים כל בוקר</p></div>
+<div class="entry in" style="--i:3"><div class="entry-head"><p class="entry-word">סָבְרָה</p><p class="entry-tab">ס</p></div><p class="entry-def">חשבה, הייתה בדעה</p><p class="entry-use">האישה חשבה שלא מספיק להרוג כמה</p></div>
+<div class="entry in" style="--i:4"><div class="entry-head"><p class="entry-word">אֵפוֹא</p><p class="entry-tab">א</p></div><p class="entry-def">אם כן, לכן</p><p class="entry-use">מילה ספרותית שמחברת סיבה לתוצאה</p></div>
+</div>
+<div class="dict-row">
+<div class="entry in" style="--i:5"><div class="entry-head"><p class="entry-word">אִינְדִּיוִידוּאָלִי</p><p class="entry-tab">א</p></div><p class="entry-def">אישי, לכל אחד בנפרד</p><p class="entry-use">האישה הורגת כל נמלה לבד</p></div>
+<div class="entry in" style="--i:6"><div class="entry-head"><p class="entry-word">פְלִיט</p><p class="entry-tab">פ</p></div><p class="entry-def">תרסיס רעל נגד חרקים</p><p class="entry-use">שם של מותג מפורסם בעבר</p></div>
+<div style="flex:1"></div>
+</div>
+</div>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־45 שניות) לפני שנספר את הסיפור – כמה מילים קשות שמופיעות בו. מפתן – סף הדלת, הכניסה לבית: משם נכנסת שיירת הנמלים כל בוקר. סברה – כאן זה פועל: חשבה, הייתה בדעה. האישה חשבה שאין טעם להרוג רק כמה נמלים, וצריך למצוא את הקן. אפוא – אם כן, לכן; מילה ספרותית שמחברת בין סיבה לתוצאה. אינדיווידואלי – אישי, לכל אחד בנפרד: האישה עוברת להרוג כל נמלה לבד. פליט – תרסיס רעל נגד חרקים, מותג שהיה מאוד מפורסם פעם; בסיפור מרססים איתו את הנמלים.</aside>
+</section>
+<section id="home" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#161514"/></svg>
+<p class="eyebrow in" style="--i:0">פרק א׳ · ההתחלה</p>
+<h2 class="in" style="--i:1">דירה בקומת קרקע</h2>
+<div class="pair">
+<div class="paircard in" style="--i:2"><p class="label">יתרון אחד</p><h3>אין מדרגות</h3></div>
+<div class="paircard fragment"><p class="label">חיסרון אחד</p><h3>גם לנמלים אין</h3></div>
+</div>
+<div class="route fade" style="--i:3">
+<svg width="1664" height="170" viewBox="0 0 1664 170" aria-label="מסלול שיירת הנמלים: מהפתח, דרך ארון הלחם, אל הכיור">
+<defs><g id="antH" transform="scale(1.4)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></defs>
+<path d="M1500 50 L164 50" stroke="#ABA79F" stroke-width="2" stroke-dasharray="2 12" stroke-linecap="round" fill="none"/>
+<circle cx="1500" cy="50" r="10" fill="#161514"/>
+<circle cx="832" cy="50" r="10" fill="#161514"/>
+<circle cx="164" cy="50" r="10" fill="#161514"/>
+<use href="#antH" x="230" y="50"><animateMotion dur="2.45s" path="M1470 0 L0 0"/></use>
+<use href="#antH" x="339" y="50"><animateMotion dur="2.4s" path="M1441 0 L0 0"/></use>
+<use href="#antH" x="448" y="50"><animateMotion dur="2.35s" path="M1412 0 L0 0"/></use>
+<use href="#antH" x="557" y="50"><animateMotion dur="2.31s" path="M1383 0 L0 0"/></use>
+<use href="#antH" x="666" y="50"><animateMotion dur="2.26s" path="M1354 0 L0 0"/></use>
+<use href="#antH" x="775" y="50"><animateMotion dur="2.21s" path="M1325 0 L0 0"/></use>
+<use href="#antH" x="884" y="50"><animateMotion dur="2.16s" path="M1296 0 L0 0"/></use>
+<use href="#antH" x="993" y="50"><animateMotion dur="2.11s" path="M1267 0 L0 0"/></use>
+<use href="#antH" x="1102" y="50"><animateMotion dur="2.06s" path="M1238 0 L0 0"/></use>
+<use href="#antH" x="1211" y="50"><animateMotion dur="2.02s" path="M1209 0 L0 0"/></use>
+<use href="#antH" x="1320" y="50"><animateMotion dur="1.97s" path="M1180 0 L0 0"/></use>
+<use href="#antH" x="1429" y="50"><animateMotion dur="1.92s" path="M1151 0 L0 0"/></use>
+</svg>
+<p class="stop" style="left:1340px">הפתח</p>
+<p class="stop" style="left:672px">ארון הלחם</p>
+<p class="stop" style="left:4px">הכיור</p>
+</div>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־45 שניות) הסיפור נפתח בבדיחה: בדירה בקומת קרקע לא צריך לטפס במדרגות. [לחיצה] אבל גם הנמלים לא צריכות. כל בוקר עוברת במטבח שיירה של נמלים: מהכניסה, דרך ארון הלחם, ישר אל הכיור. המספר ואשתו, שקישון קורא לה האישה הקטנה, מחליטים שלא מספיק להרוג כמה נמלים – צריך למצוא את הקן.</aside>
+</section>
+<section id="war" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#161514"/></svg>
+<p class="eyebrow in" style="--i:0">פרק א׳ · המלחמה</p>
+<h2 class="in" style="--i:1">שישה ניסיונות</h2>
+<div class="steps">
+<div class="steprow">
+<div class="step fragment"><p class="num">01</p><h3>לאתר את הקן</h3><p class="result">הגיעו מרחוק</p></div>
+<div class="step fragment"><p class="num">02</p><h3>אבקת רעל</h3><p class="result">דילגו מעליה</p></div>
+<div class="step fragment"><p class="num">03</p><h3>נפט</h3><p class="result">חזרו אחרי יומיים</p></div>
+</div>
+<div class="steprow">
+<div class="step fragment"><p class="num">04</p><h3>סירופ נגד שיעול</h3><p class="result">השתכרו ממנו</p></div>
+<div class="step fragment"><p class="num">05</p><h3>טיפול אישי</h3><p class="result">מאות כל בוקר – לשווא</p></div>
+<div class="step fragment"><p class="num">06</p><h3>מלפפונים</h3><p class="result">לא התרשמו</p></div>
+</div>
+</div>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־90 שניות) מכאן מתחילה מלחמה של ממש. לחיצה על כל ניסיון: 1. הם עוקבים אחרי השיירה עד גבול הרצליה, והאישה מחליטה שהנמלים בכלל מגיעות מחוץ לארץ. 2. אבקת רעל – הנמלים פשוט מדלגות מעליה. 3. נפט על כל המטבח – הנמלים נעלמות ליומיים וחוזרות עוד יותר פעילות. 4. הן מגלות סירופ נגד שיעול ומשתכרות ממנו. 5. טיפול אישי – האישה הורגת מאות נמלים כל בוקר, עד שהיא מבינה שזה לשווא, כי תמיד יש עוד. 6. מלפפונים, שאומרים שנמלים לא סובלות את הריח שלהם – והנמלים בכלל לא מתרשמות. שימו לב להומור: קישון מתאר את הנמלים כמו בני אדם – הן משתכרות, צוחקות ומגיעות מחוץ לארץ.</aside>
+</section>
+<section id="office" class="dark center" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#F3F0E8"/></svg>
+<div class="stamp fragment">
+<svg width="300" height="300" viewBox="0 0 300 300" aria-label="חותמת של רשות הנמלים">
+<defs><g id="antO"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#F3F0E8" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#F3F0E8"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#F3F0E8"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#F3F0E8"/></g></defs>
+<circle cx="150" cy="150" r="140" stroke="#F3F0E8" stroke-width="6" fill="none"/>
+<circle cx="150" cy="150" r="122" stroke="#F3F0E8" stroke-width="2" fill="none"/>
+<use href="#antO" transform="translate(150 150) scale(5.5)"/>
+</svg>
+<p class="stamp-text">רשות הנמלים</p>
+<p class="stamp-text">אין מה לעשות</p>
+</div>
+<p class="eyebrow in" style="--i:0">הניסיון האחרון · רשות הנמלים</p>
+<div class="dialog">
+<p class="whisper in" style="--i:1">שאלנו את המומחים מה לעשות.&#8207;</p>
+<h2 class="fragment">התשובה: כלום.&#8207;</h2>
+<p class="whisper fragment">גם אצל המנכ״ל יש נמלים במטבח.&#8207;</p>
+</div>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־45 שניות) בסוף הם פונים לרשות הנמלים – למומחים – ושואלים מה לעשות. [לחיצה] התשובה: כלום, אין מה לעשות. [לחיצה] ואז מתברר שגם למנהל של הרשות יש נמלים במטבח. [לחיצה – החותמת] זה רגע המפנה של הסיפור: אם אפילו המומחים לא מצליחים, כנראה שזה פשוט לא בשליטה שלנו.</aside>
+</section>
+<section id="peace" class="alt" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#161514"/></svg>
+<p class="eyebrow in" style="--i:0">פרק א׳ · הסוף של קישון</p>
+<h2 class="in" style="--i:1">ומאז – שלום בית</h2>
+<div class="row3">
+<div class="card in" style="--i:2"><p class="label">השיירה</p><h3>ממשיכה לעבור – וזה בסדר</h3></div>
+<div class="card in" style="--i:3"><p class="label">כל בוקר</p><h3>מבט קצר, בלי מלחמה</h3></div>
+<div class="card in" style="--i:4"><p class="label">הנמלים ואנחנו</p><h3>שכנים ותיקים</h3></div>
+</div>
+<div class="peace-row">
+<p class="big fragment">ממלחמה – לדו־קיום.&#8207;</p>
+<svg class="greet fade" style="--i:5" width="420" height="120" viewBox="0 0 420 120" aria-label="שתי נמלים נפגשות ונוגעות במחושים">
+<defs><g id="antP"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></defs>
+<use href="#antP" transform="translate(166 84) scale(-3 3)"><animateMotion dur="1.4s" begin="0s" path="M-60 0 L0 0"/></use>
+<use href="#antP" transform="translate(254 84) scale(3)"><animateMotion dur="1.4s" begin="0s" path="M60 0 L0 0"/></use>
+<path d="M210 48 C196 36 184 26 197 18 C204 14 210 20 210 25 C210 20 216 14 223 18 C236 26 224 36 210 48 Z" fill="#161514" opacity="1"><animate attributeName="opacity" values="0;0;1" dur="2s" begin="0s"/></path>
+</svg>
+</div>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־45 שניות) ומאז – יש שקט בבית. השיירה ממשיכה לעבור בדיוק כמו קודם, אבל זה כבר לא מפריע. כל בוקר הם רק מציצים לבדוק שהכל בסדר, והנמלים כבר מכירות אותם. הם נהיו כמו שני יריבים ותיקים שלמדו לכבד זה את זה. [לחיצה] קישון מסיים באירוניה: המלחמה הפכה לדו־קיום. שימו לב – הבעיה לא נפתרה. מה שהשתנה זו הגישה שלהם.</aside>
+</section>
+<section id="ch2" class="dark chapter" data-transition="fade">
+<div class="frame"></div>
+<p class="eyebrow in" style="--i:0">פרק ב׳</p>
+<div class="ring">
+<svg class="ring-svg fade" style="--i:1" width="460" height="460" viewBox="0 0 460 460" aria-label="מעגל של נמלים סביב האות">
+<defs><g id="antR"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#F3F0E8" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#F3F0E8"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#F3F0E8"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#F3F0E8"/></g></defs>
+<g>
+<use href="#antR" transform="translate(430 230) rotate(-90) scale(1.5)"/>
+<use href="#antR" transform="translate(403.2 330) rotate(-60) scale(1.5)"/>
+<use href="#antR" transform="translate(330 403.2) rotate(-30) scale(1.5)"/>
+<use href="#antR" transform="translate(230 430) rotate(0) scale(1.5)"/>
+<use href="#antR" transform="translate(130 403.2) rotate(30) scale(1.5)"/>
+<use href="#antR" transform="translate(56.8 330) rotate(60) scale(1.5)"/>
+<use href="#antR" transform="translate(30 230) rotate(90) scale(1.5)"/>
+<use href="#antR" transform="translate(56.8 130) rotate(120) scale(1.5)"/>
+<use href="#antR" transform="translate(130 56.8) rotate(150) scale(1.5)"/>
+<use href="#antR" transform="translate(230 30) rotate(180) scale(1.5)"/>
+<use href="#antR" transform="translate(330 56.8) rotate(210) scale(1.5)"/>
+<use href="#antR" transform="translate(403.2 130) rotate(240) scale(1.5)"/>
+<animateTransform attributeName="transform" type="rotate" from="-60 230 230" to="0 230 230" dur="2.5s" begin="0s"/>
+</g>
+</svg>
+<p class="bigletter-sm ink" style="--i:2">ב</p>
+</div>
+<hr class="rule draw" style="--i:3">
+<h2 class="in" style="--i:4">המסר</h2>
+<p class="epi in" style="--i:6">ובו נגלה מה קישון רצה לומר לנו</p>
+<aside>(כ־10 שניות) אז מה קישון בעצם רוצה להגיד לנו? (שימו לב למעגל הנמלים: הן חוזרות כל קיץ מחדש – כמו מעגל שלא נגמר.)</aside>
+</section>
+<section id="cantchange" class="center" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#161514"/></svg>
+<p class="eyebrow in" style="--i:0">פרק ב׳ · המסר המרכזי</p>
+<h1 class="ink" style="--i:1">יש דברים<br>שאי אפשר לשנות.&#8207;</h1>
+<svg class="asterism in" style="--i:3" width="260" height="50" viewBox="0 0 260 50" aria-label="קישוט של שלוש נמלים">
+<defs><g id="antS"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></defs>
+<use href="#antS" transform="translate(40 25) scale(1.5)"/>
+<use href="#antS" transform="translate(130 25) scale(1.5)"/>
+<use href="#antS" transform="translate(220 25) scale(1.5)"/>
+</svg>
+<p class="big mute fragment">&#8207;…וצריך ללמוד לחיות איתם.&#8207;</p>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־45 שניות) המסר המרכזי של הסיפור: יש דברים שאי אפשר לשנות, לא משנה כמה ננסה. הנמלים מגיעות כל קיץ – וזהו. הם ניסו הכל: רעל, נפט, סירופ, מלפפונים, ואפילו פנו למומחים. [לחיצה] ובמקום לבזבז את כל הכוח על מלחמה שאי אפשר לנצח בה – צריך ללמוד לחיות עם זה.</aside>
+</section>
+<section id="default" class="alt" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#161514"/></svg>
+<p class="eyebrow in" style="--i:0">פרק ב׳ · ברירת מחדל</p>
+<div class="split">
+<div class="split-text">
+<h2 class="in" style="--i:1">ברירת מחדל</h2>
+<p class="mute in" style="--i:2">לא אנחנו בחרנו בה.&#8207;<br>אי אפשר לכבות אותה.&#8207;</p>
+<p class="big fragment">מה שבידיים שלנו: איך אנחנו מגיבים.&#8207;</p>
+</div>
+<div class="panel in" style="--i:3">
+<div class="panel-head"><p class="label">הגדרות הבית</p><svg class="lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+<div class="setrow"><p>נמלים במטבח</p><div class="setctl"><svg class="lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><div class="toggle"><div class="knob knob-try"></div></div></div></div>
+<div class="setrow"><p>דירה בקומת קרקע</p><div class="setctl"><svg class="lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><div class="toggle"><div class="knob"></div></div></div></div>
+<div class="setrow setrow-last"><p>קיץ</p><div class="setctl"><svg class="lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><div class="toggle"><div class="knob"></div></div></div></div>
+</div>
+</div>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־50 שניות) אפשר לחשוב על זה כמו "ברירת מחדל" בטלפון או במחשב: הגדרה שקיימת מראש. לא אנחנו בחרנו בה, ואי אפשר לכבות אותה – כמו המתג הנעול כאן. (שימו לב: המתג של "נמלים במטבח" מנסה לזוז ולא מצליח.) אצל קישון – הנמלים, הקיץ והדירה בקומת קרקע הם ברירת המחדל. [לחיצה] מה שכן נשאר בידיים שלנו: איך אנחנו מגיבים לזה.</aside>
+</section>
+<section id="stages" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#161514"/></svg>
+<p class="eyebrow in" style="--i:0">פרק ב׳ · התהליך שהדמויות עוברות</p>
+<h2 class="in" style="--i:1">שלושה שלבים</h2>
+<div class="stages">
+<div class="stage in" style="--i:2"><p class="stnum">1</p><h3>להילחם</h3><p class="result">רעל, נפט, סירופ…&#8207;</p></div>
+<div class="stagewrap fragment"><svg class="arrow-svg" width="72" height="36" viewBox="0 0 72 36" aria-hidden="true"><path d="M0 18 L28 0 L28 10 L72 10 L72 26 L28 26 L28 36 Z" fill="#161514"/></svg><div class="stage"><p class="stnum">2</p><h3>להתייאש</h3><p class="result">שום דבר לא עובד</p></div></div>
+<div class="stagewrap fragment"><svg class="arrow-svg" width="72" height="36" viewBox="0 0 72 36" aria-hidden="true"><path d="M0 18 L28 0 L28 10 L72 10 L72 26 L28 26 L28 36 Z" fill="#161514"/></svg><div class="stage"><p class="stnum">3</p><h3>להשלים</h3><p class="result">מקבלים את המצב</p></div></div>
+</div>
+<div class="punch fragment"><p class="big">הכלי של קישון: לצחוק על מה שאי אפשר לשנות.&#8207;</p></div>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־60 שניות) הדמויות עוברות תהליך בשלושה שלבים. קודם – מלחמה בכל הכוח: רעל, נפט, סירופ. [לחיצה] אחר כך – ייאוש: שום דבר לא עובד. [לחיצה] ובסוף – השלמה: הם מקבלים את המצב, והשיירה נהיית חלק מהבית. [לחיצה] והכלי של קישון עצמו הוא הומור: כשצוחקים על מה שאי אפשר לשנות – הרבה יותר קל לחיות איתו. כל הסיפור כתוב בצחוק, וזאת בעצם הדרך שלו להשלים.</aside>
+</section>
+<section id="us" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#161514"/></svg>
+<p class="eyebrow in" style="--i:0">פרק ב׳ · ומה אצלנו?&#8207;</p>
+<h2 class="in" style="--i:1">לכל אחד יש ״נמלים״ משלו</h2>
+<div class="row4">
+<div class="tile in" style="--i:2"><p class="num">01</p><h3>המשפחה שנולדנו אליה</h3></div>
+<div class="tile in" style="--i:3"><p class="num">02</p><h3>הגוף והמראה שלנו</h3></div>
+<div class="tile in" style="--i:4"><p class="num">03</p><h3>מגבלות וקשיים</h3></div>
+<div class="tile in" style="--i:5"><p class="num">04</p><h3>אנשים שלא בחרנו</h3></div>
+</div>
+<div class="punch fragment"><p class="big">ללמוד לחיות עם זה – זו לא חולשה. זה כוח.&#8207;</p></div>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־50 שניות) ולמה זה קשור אלינו? לכל אחד יש "נמלים" משלו – דברים שהם ברירת מחדל: המשפחה שנולדנו אליה, הגוף והמראה שלנו, מגבלות וקשיים, ואנשים שלא אנחנו בחרנו – שכנים, מורים, אחים. (כדאי לתת כאן דוגמה קצרה משלכם.) [לחיצה] ללמוד לחיות עם הדברים האלה – זו לא חולשה ולא ויתור. זה כוח.</aside>
+</section>
+<section id="ch3" class="dark chapter" data-transition="fade">
+<div class="frame"></div>
+<svg class="side-art fade" style="--i:5" width="360" height="360" viewBox="0 0 360 360" aria-label="נמלה מניפה דגל לבן – הנמלים נכנעות">
+<defs><g id="antF"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#F3F0E8" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#F3F0E8"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#F3F0E8"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#F3F0E8"/></g></defs>
+<path d="M165 290 L165 70" stroke="#ABA79F" stroke-width="6" stroke-linecap="round"/>
+<g>
+<path d="M165 72 C200 58 232 92 272 74 L272 150 C232 168 200 134 165 148 Z" fill="#F3F0E8"/>
+<animateTransform attributeName="transform" type="rotate" values="0 165 110; -6 165 110; 0 165 110; 5 165 110; 0 165 110" dur="2.4s" begin="0.8s" repeatCount="2"/>
+</g>
+<use href="#antF" transform="translate(205 285) scale(4)"/>
+</svg>
+<p class="eyebrow in" style="--i:0">פרק ג׳</p>
+<p class="bigletter ink" style="--i:1">ג</p>
+<hr class="rule draw" style="--i:3">
+<h2 class="in" style="--i:4">סוף אחר</h2>
+<p class="epi in" style="--i:6">ובו כתבנו לסיפור סוף משלנו</p>
+<aside>(כ־10 שניות) ועכשיו – החלק שלנו. כתבנו לסיפור סוף אחר. (הנמלה עם הדגל הלבן כבר רומזת איך הוא נגמר...)</aside>
+</section>
+<section id="why" class="center" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#161514"/></svg>
+<p class="eyebrow in" style="--i:0">פרק ג׳ · למה?&#8207;</p>
+<h3 class="mute in" style="--i:1">למה כתבנו סוף אחר?&#8207;</h3>
+<hr class="rule draw" style="--i:2">
+<h2 class="fragment">כי לפעמים ״אי אפשר״</h2>
+<h2 class="fragment">הוא בעצם ״עוד לא״.&#8207;</h2>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־30 שניות) למה בחרנו לכתוב סוף אחר? כי הרגשנו שבסוף המקורי הדמויות מוותרות קצת מהר מדי. [לחיצה] לפעמים מה שנראה לנו "בלתי אפשרי" [לחיצה] הוא בעצם רק "עוד לא" – עוד לא מצאנו את הדרך.</aside>
+</section>
+<section id="ending" class="alt" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#161514"/></svg>
+<p class="eyebrow in" style="--i:0">פרק ג׳ · הסוף שלנו</p>
+<div class="beats">
+<h1 class="ending-h fragment" data-fragment-index="1">היא לא ויתרה.&#8207;</h1>
+<p class="beat-mid fragment" data-fragment-index="2">ניסיון שביעי. שמיני. תשיעי…&#8207;</p>
+<p class="beat-big fragment" data-fragment-index="3">ואז – הניסיון מצליח.&#8207;</p>
+</div>
+<div class="fleefield fade" style="--i:2">
+<div class="flee f1 fragment" data-fragment-index="4" style="left:80px; top:40px"><svg width="60" height="60" viewBox="-30 -30 60 60" aria-label="נמלה בורחת"><g transform="rotate(9.7) scale(1.8)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></svg></div>
+<div class="flee f2 fragment" data-fragment-index="4" style="left:260px; top:100px"><svg width="60" height="60" viewBox="-30 -30 60 60" aria-label="נמלה בורחת"><g transform="rotate(-32) scale(1.8)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></svg></div>
+<div class="flee f3 fragment" data-fragment-index="4" style="left:450px; top:20px"><svg width="60" height="60" viewBox="-30 -30 60 60" aria-label="נמלה בורחת"><g transform="rotate(69.4) scale(1.8)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></svg></div>
+<div class="flee f4 fragment" data-fragment-index="4" style="left:640px; top:90px"><svg width="60" height="60" viewBox="-30 -30 60 60" aria-label="נמלה בורחת"><g transform="rotate(-74) scale(1.8)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></svg></div>
+<div class="flee f5 fragment" data-fragment-index="4" style="left:820px; top:30px"><svg width="60" height="60" viewBox="-30 -30 60 60" aria-label="נמלה בורחת"><g transform="rotate(96.3) scale(1.8)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></svg></div>
+<div class="flee f6 fragment" data-fragment-index="4" style="left:1000px; top:100px"><svg width="60" height="60" viewBox="-30 -30 60 60" aria-label="נמלה בורחת"><g transform="rotate(-113.2) scale(1.8)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></svg></div>
+<div class="flee f7 fragment" data-fragment-index="4" style="left:1180px; top:20px"><svg width="60" height="60" viewBox="-30 -30 60 60" aria-label="נמלה בורחת"><g transform="rotate(135) scale(1.8)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></svg></div>
+<div class="flee f8 fragment" data-fragment-index="4" style="left:1360px; top:90px"><svg width="60" height="60" viewBox="-30 -30 60 60" aria-label="נמלה בורחת"><g transform="rotate(-167.5) scale(1.8)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></svg></div>
+<div class="flee f9 fragment" data-fragment-index="4" style="left:1540px; top:20px"><svg width="60" height="60" viewBox="-30 -30 60 60" aria-label="נמלה בורחת"><g transform="rotate(156.8) scale(1.8)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></svg></div>
+<div class="flee f10 fragment" data-fragment-index="4" style="left:1560px; top:100px"><svg width="60" height="60" viewBox="-30 -30 60 60" aria-label="נמלה בורחת"><g transform="rotate(-143.1) scale(1.8)"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></svg></div>
+</div>
+<p class="beat-big fragment" data-fragment-index="5">ובוקר אחד – המטבח שקט.&#8207;</p>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־60 שניות) בסוף שלנו האישה הקטנה לא מוותרת. [לחיצה] היא לא מקבלת את התשובה של רשות הנמלים. [לחיצה] היא ממשיכה לנסות – ניסיון אחרי ניסיון, גם כשכולם אומרים לה שאין טעם. [לחיצה] ואז, אחרי כל הניסיונות שנכשלו – ניסיון אחד מצליח. (כאן מספרים בקצרה מה היה הניסיון שהצליח בסוף שכתבנו.) [לחיצה – הנמלים בורחות לכל הכיוונים] הנמלים נבהלות ובורחות מהבית. [לחיצה] ובוקר אחד – המטבח שקט.</aside>
+</section>
+<section id="never" class="dark center" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#F3F0E8"/></svg>
+<svg class="climb fade" style="--i:2" width="600" height="300" viewBox="0 0 600 300" aria-label="נמלה סוחבת פירור גדול במעלה מדרון">
+<defs><g id="antN"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#F3F0E8" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#F3F0E8"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#F3F0E8"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#F3F0E8"/></g></defs>
+<path d="M580 268 L20 52" stroke="#ABA79F" stroke-width="3" stroke-linecap="round"/>
+<g transform="translate(149 87)">
+<g transform="rotate(21) scale(3)">
+<path d="M-7 -11 L3 -16 L12 -11 L10 -3 L-2 -4 L-9 -6 Z" fill="#ABA79F"/>
+<use href="#antN"/>
+<animateMotion dur="5s" begin="0s" path="M364 140 L0 0"/>
+</g>
+</g>
+</svg>
+<p class="eyebrow in" style="--i:0">המסר של הסוף שלנו</p>
+<h1 class="ink" style="--i:1">לא מוותרים.&#8207;</h1>
+<hr class="rule draw" style="--i:3">
+<p class="big mute fragment">גם כשקשה.&#8207;</p>
+<p class="big mute fragment">גם כשהכל נראה אבוד.&#8207;</p>
+<p class="big fragment">ממשיכים – עד שמגיעים למטרה.&#8207;</p>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־30 שניות) המסר של הסוף שלנו הפוך מזה של קישון: אסור לוותר. (שימו לב לנמלה שסוחבת פירור גדול ממנה במעלה – גם הנמלים עצמן לא מוותרות.) [לחיצה] גם כשקשה. [לחיצה] גם כשהכל נראה אבוד, וגם כשהמומחים אומרים שאין מה לעשות. [לחיצה] ממשיכים לנסות – עד שמגיעים למטרה.</aside>
+</section>
+<section id="two" data-transition="fade">
+<div class="frame"></div>
+<svg class="ribbon" width="44" height="150" viewBox="0 0 44 150" aria-label="סימנייה"><path d="M0 0 H44 V150 L22 128 L0 150 Z" fill="#161514"/></svg>
+<p class="eyebrow in" style="--i:0">סיכום</p>
+<h2 class="in" style="--i:1">שני סופים, שני מסרים</h2>
+<div class="versus">
+<div class="side in" style="--i:2"><p class="label">הסוף של קישון</p><h2>השלמה</h2><p class="mute">יש דברים שלומדים לחיות איתם.&#8207;</p></div>
+<div class="divider fade" style="--i:3"></div>
+<div class="side in" style="--i:4"><p class="label">הסוף שלנו</p><h2>התמדה</h2><p class="mute">לא מוותרים עד שמצליחים.&#8207;</p></div>
+</div>
+<div class="punch fragment"><p class="big">החוכמה: לדעת מתי להילחם – ומתי להשלים.&#8207;</p></div>
+<div class="folio"><p class="run">אפרים קישון · קיץ של נמלים</p><div class="pn"></div></div>
+<aside>(כ־45 שניות) אז יש לנו שני סופים ושני מסרים. אצל קישון – השלמה: יש דברים שלא נשנה, ולומדים לחיות איתם. אצלנו – התמדה: לא מוותרים עד שמצליחים. ושניהם נכונים! [לחיצה] החוכמה האמיתית היא לדעת להבחין ביניהם: מתי שווה להמשיך להילחם, ומתי עדיף להשלים ולהמשיך הלאה.</aside>
+</section>
+<section id="end" class="chapter">
+<div class="frame-outer fade" style="--i:0"></div>
+<div class="frame-inner fade" style="--i:1"></div>
+<p class="endmark ink" style="--i:0">סוף.&#8207;</p>
+<hr class="rule draw" style="--i:2">
+<p class="big in" style="--i:3">תודה על ההקשבה</p>
+<p class="label in" style="--i:4">שאלות?&#8207;</p>
+<svg class="readbook fade" style="--i:6" width="300" height="150" viewBox="0 0 300 150" aria-label="נמלה קוראת בספר פתוח">
+<defs><g id="antZ"><path d="M-1 0 L-5 -8 M-1 0 L-5 8 M-1 0 L0 -9 M-1 0 L0 9 M-1 0 L5 -8 M-1 0 L5 8 M-10 -2 L-14 -7 M-10 2 L-14 7" stroke="#161514" stroke-width="1.4" stroke-linecap="round" fill="none"/><ellipse cx="-8" cy="0" rx="3.4" ry="3" fill="#161514"/><ellipse cx="-1" cy="0" rx="3" ry="2.2" fill="#161514"/><ellipse cx="7.5" cy="0" rx="5.6" ry="4.2" fill="#161514"/></g></defs>
+<path d="M150 135 L30 115 L30 30 L150 50 Z" fill="#F3F0E8" stroke="#161514" stroke-width="3" stroke-linejoin="round"/>
+<path d="M150 135 L270 115 L270 30 L150 50 Z" fill="#F3F0E8" stroke="#161514" stroke-width="3" stroke-linejoin="round"/>
+<path d="M170 72 L250 58 M170 90 L250 76 M170 108 L230 98 M50 52 L130 66" stroke="#ABA79F" stroke-width="2" stroke-linecap="round"/>
+<use href="#antZ" transform="translate(92 92) scale(1.7)"/>
+</svg>
+<aside>(כ־15 שניות) תודה רבה על ההקשבה! נשמח לענות על שאלות.</aside>
+</section>
+</main>
+<div id="notes" aria-label="הערות דובר"></div>
+<div id="hint">← / רווח: הבא · → : הקודם · S: הערות דובר · F: מסך מלא</div>
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var notes = document.getElementById('notes');
+  var hint = document.getElementById('hint');
+  var originals = Array.prototype.map.call(stage.querySelectorAll(':scope > section'), function (s) { return s.outerHTML; });
+  var total = originals.length, idx = 0, step = 0, steps = [];
+
+  function fit() {
+    var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    stage.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+  }
+
+  function buildSteps(sec) {
+    var frags = Array.prototype.slice.call(sec.querySelectorAll('.fragment'));
+    var groups = {}, keys = [], out = [];
+    frags.forEach(function (f) {
+      if (!f.hasAttribute('data-fragment-index')) return;
+      var k = +f.getAttribute('data-fragment-index');
+      if (!groups[k]) { groups[k] = []; keys.push(k); }
+      groups[k].push(f);
+    });
+    keys.sort(function (a, b) { return a - b; }).forEach(function (k) { out.push(groups[k]); });
+    frags.forEach(function (f) { if (!f.hasAttribute('data-fragment-index')) out.push([f]); });
+    return out;
+  }
+
+  function markCurrent() {
+    stage.querySelectorAll('.current-fragment').forEach(function (e) { e.classList.remove('current-fragment'); });
+    if (step > 0) steps[step - 1].forEach(function (e) { e.classList.add('current-fragment'); });
+  }
+
+  function show(i, revealAll) {
+    i = Math.max(0, Math.min(total - 1, i));
+    var t = document.createElement('template');
+    t.innerHTML = originals[i];
+    var fresh = t.content.firstElementChild;
+    stage.replaceChild(fresh, stage.children[i]);
+    Array.prototype.forEach.call(stage.children, function (s) { s.classList.toggle('active', s === fresh); });
+    fresh.querySelectorAll('svg').forEach(function (svg) {
+      if (svg.setCurrentTime) { svg.setCurrentTime(0); svg.unpauseAnimations(); }
+    });
+    idx = i;
+    steps = buildSteps(fresh);
+    step = 0;
+    if (revealAll) { steps.forEach(function (g) { g.forEach(function (e) { e.classList.add('visible'); }); }); step = steps.length; }
+    markCurrent();
+    var aside = fresh.querySelector('aside');
+    notes.innerHTML = '<b>' + (i + 1) + ' / ' + total + '</b>';
+    notes.appendChild(document.createTextNode(aside ? aside.textContent : ''));
+    if (history.replaceState) history.replaceState(null, '', '#slide-' + (i + 1));
+  }
+
+  function next() {
+    if (step < steps.length) { steps[step].forEach(function (e) { e.classList.add('visible'); }); step++; markCurrent(); }
+    else if (idx < total - 1) show(idx + 1, false);
+  }
+  function prev() {
+    if (step > 0) { step--; steps[step].forEach(function (e) { e.classList.remove('visible'); }); markCurrent(); }
+    else if (idx > 0) show(idx - 1, true);
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var k = e.key;
+    if (k === 'ArrowLeft' || k === 'ArrowDown' || k === 'PageDown' || k === ' ' || k === 'Enter') { e.preventDefault(); next(); }
+    else if (k === 'ArrowRight' || k === 'ArrowUp' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); prev(); }
+    else if (k === 'Home') show(0, false);
+    else if (k === 'End') show(total - 1, true);
+    else if (k === 's' || k === 'S' || k === 'ד') notes.classList.toggle('on');
+    else if (k === 'f' || k === 'F' || k === 'כ') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+      else document.exitFullscreen && document.exitFullscreen();
+    }
+  });
+  stage.addEventListener('click', function (e) {
+    var x = e.clientX / window.innerWidth;
+    if (x > 0.85) prev(); else next();
+  });
+  var tx = null;
+  stage.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', function (e) {
+    if (tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx; tx = null;
+    if (Math.abs(dx) > 40) { if (dx < 0) next(); else prev(); }
+  });
+  window.addEventListener('resize', fit);
+
+  fit();
+  var m = /slide-(\d+)/.exec(location.hash);
+  show(m ? (+m[1] - 1) : 0, false);
+  setTimeout(function () { hint.classList.add('off'); }, 4500);
+})();
+</script>
+</body>
+</html>
